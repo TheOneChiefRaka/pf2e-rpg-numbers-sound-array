@@ -272,7 +272,7 @@ function getCritActorSettings(data, successOrFail, flags, type = "default") {
     result.offset.y = (typeSpecificSettings?.offset?.y || (baseSettings?.offset?.y ?? 0)) / 100;
     result.rotation = typeSpecificSettings?.rotation || (baseSettings?.rotation ?? 0);
     result.scale = typeSpecificSettings?.scale === 1 ? baseSettings?.scale ?? 1 : typeSpecificSettings?.scale ?? 1;
-    result.sfx = typeSpecificSettings?.sfx || baseSettings?.sfx || "";
+    result.sfx = playRandomCritSound(typeSpecificSettings?.sfx || baseSettings?.sfx || "");
     result.type = typeSpecificSettings?.type === "default" ? baseSettings?.type : typeSpecificSettings?.type;
     result.imagedelay = (typeSpecificSettings?.imagedelay * MS_TO_SEC) || (baseSettings?.imagedelay ?? 0);
     result.duration = (typeSpecificSettings?.duration !== undefined ? typeSpecificSettings.duration * MS_TO_SEC : null)
@@ -283,4 +283,16 @@ function getCritActorSettings(data, successOrFail, flags, type = "default") {
     result.volume = (volume * result.volume) / 100;
 
     return result;
+}
+
+function playRandomCritSound(sfx){
+    if (typeof sfx === "string" && sfx.startsWith("[")){
+        const options = sfx
+            .slice(1, -1)
+            .split(",")
+            .map(s => s.replaceAll('"', "").trim())
+            .filter(Boolean);
+        return Sequencer.Helpers.random_array_element(options);
+    }
+    return sfx;
 }
