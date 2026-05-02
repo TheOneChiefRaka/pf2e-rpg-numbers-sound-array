@@ -1,8 +1,8 @@
 {
-    "id": "pf2e-rpg-numbers",
-    "title": "PF2e RPG Numbers & More",
+    "id": "pf2e-rpg-numbers-sound-array",
+    "title": "PF2e RPG Numbers & More - with Sound Array",
     "description": "A module that adds a lot neat rpg and anime themed effects to pf2e.",
-    "version": "#{VERSION}#",
+    "version": "1.0.0",
     "compatibility": {
         "minimum": "13",
         "verified": "14"
@@ -100,8 +100,8 @@
         }
     ],
     "styles": ["styles/style.css"],
-    "url": "#{URL}#",
-    "manifest": "#{MANIFEST}#",
-    "download": "#{DOWNLOAD}#",
+    "url": "https://github.com/TheOneChiefRaka/pf2e-rpg-numbers-sound-array",
+    "manifest": "https://raw.githubusercontent.com/TheOneChiefRaka/pf2e-rpg-numbers-sound-array/main/module.json",
+    "download": "https://github.com/TheOneChiefRaka/pf2e-rpg-numbers-sound-array/archive/refs/heads/main.zip",
     "readme": "https://github.com/chasarooniZ/pf2e-rpg-numbers/blob/master/README.md"
 }
